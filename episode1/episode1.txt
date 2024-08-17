@@ -1,0 +1,24 @@
+what is nodejs
+run js everywhere using node js
+nodejs is js runtime built on chrome v8 js engine
+nodejs is cross platform it can run on windows, linux, mac and lot of OS
+nodejs is open source
+maintained by Open js foundation community which maintains nodejs
+nodejs helps to execute js outside the web browser-
+js dominated in web world
+when nodejs came you can run js everywhere
+nodejs has event driver architecture and capabile of asynchronous I/O and asynchrous I/O also known as non blocking I/O
+first versio of nodejs release in 2009 by ryan dahl
+whatever the code we write in nodejs it is js, to run js we need a js engine
+chrome has v8 js egine and firefox has spiker monkey engine
+when ryan developed nodejs he initially used spider monkey and later shifted to v8 js engine to develop node js
+ryan worked with joyent to develop nodejs
+initially ryan named as web.js to create webserver but later he named to nodejs considering this has more potential
+nodejs is non blocking IO and advantage with non blocking IO is it can handle multiple requests with less threads
+in 2020 npm happened it is package manager for node which developed by joyent employee to manage packages
+nodejs will not be successful without npm
+in 2009 the nodejs support was there only for macos and linux and in 2011 nodejs got windows support by joyent and microsoft
+in 2012 left the project and the nodejs repsonsibility was given to isaac who developed npm
+in 2014 developer fedor created a fork of nodejs and named io.js
+in 2015 fedor and joynet got merged and nodejs foundation came and told that they will maintain nodejs
+in 2019 js foundation and nodejs foundation merged and formed open js foundation took the control of nodejs

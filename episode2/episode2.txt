@@ -1,0 +1,16 @@
+js on server
+server- server is a remote computer/cpu which is working or located remotely.
+what does it mean running a website on a server -- it means you are running a website on a server or someone computer which is generally a cloud etc.. cloud is a server located remotely
+end of the day it a cpu or machine which is receiving the request
+if we type googe.com so we make a request through client, so every domain name maps to an IP. IP points to a device, server, a machine.so client is making a request to the server. so initally js was the main language used in the browser, after nodejs we can even run js in the server. now this is very powerful...why becuase js was just used in front end, so backend java python was used..now with js in server and web..it gave an opportunity for single developer to work on both which we call as full stack.
+nodejs is c++ code
+js --> v8 engine written in c++ executes js and converts to machine level code and machine executes this code
+node js is c++ code with v8 embeded into it
+Ecmascript is standard way of writing js or scripting language.
+js engine has to follow ecmascript standards
+why nodejs for servers as end of the day is JS code only right...
+so in the server we use nodejs written in c++ with v8 engine embeded init and v8 has to follow ecmascript standards. so v8 cannot go out of ecmascript standards. so nodejs gives extra super along with v8 and runs on the server and makes it very powerful
+these super powers are api on servers.
+if we want to access database on to the server through js, v8 cant do that because its not in ecmascript standard, so we need super powers and those superpowers come in form of api, that is the core thing of nodejs and it becomes powerful
+so v8 + super powers is nodejs and this is known as js run time and now nodejs is executed in the server
+js (high level) --> js processs by c++ code v8 to machine code ---> binary code (low level ) understand by computer

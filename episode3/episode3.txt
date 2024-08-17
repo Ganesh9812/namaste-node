@@ -1,0 +1,21 @@
+when we install node automatically npm is installed in our sytem
+npm is a package manager for node
+both nodejs and npm are required to run nodejs application
+node REPL
+read evaluate print loop
+how we go to node repl
+write node
+we will go to REPL
+now it enters into a program to run the node program
+now we can run js code in the terminal and it gives results
+nodejs at the end of the day it is js
+1+1 gives 2
+so here we are running js in node run time env
+nodejs is js run time env
+and behind the scenes nodejs is using v8 js engine + some super powers
+nodejs is v8 engine + super power
+Global object in nodejs is global
+global is not part of v8 and it is super power of nodejs
+js commitee came up with name globalThis and this was referring to global object across all js run time env, nodejs, all browsers
+globalThis in browser refers to window
+globalThis in nodejs file refers to the same nodejs global object
