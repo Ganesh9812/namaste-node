@@ -1,0 +1,33 @@
+module export and require
+
+for executing the file we can use node app.js command
+we can write all login app.js but better we write in multiple files for our project
+in our nodejs we always need to have a entry point so here lets assume it as app.js file
+in  nodejs lets say if we have different file xyz.js, then we can call it as a separate module, so here xyz.js will be a module
+since we have only one entry point to our nodejs project, how do we make work the two separate modules..we need to use require funtion...
+so xyz file runs first and then app.js file runs at last
+if we use require it will execute the code in that module but the app.js will not be having access to methods or variables directly even if we use require in our app.js file
+modules are protected by default by varibales and functions by leaking
+for that i need to export and then import in the app.js file as mentioned in the files
+common js modules and ES modules
+common js modules or cjs 
+module.export and require
+by default type: "commonjs" will be considered and if write type: "module" then this is a different way of importing and exporting modules
+this is synchronous
+code is run in non strict mode
+
+ES modules
+to use ES module or mjs pattern, i need to write type: "module" in package.json and this is a different way of exporting and importing the modules unlike modules.export and require
+this is like how we do regular import and export
+open js committee is saying that in future EJS will be regular
+this can be async as well
+code is run in strict mode
+
+if we log moduel.exports initially it will be empty object
+
+nested modules
+so if we have one folder with 3 files, export to the single index in the same folder and then export the index to the app.js and then import the index into the app.js 
+app.js sum.js xyz.js belongs to episode4
+for json file you need to export and directly we can import using require in the app.js file
+module can be a file or a folder which is private to itself
+
