@@ -1,0 +1,44 @@
+in js we create a function x, all the variables and functions inside the function x cannot be accessed outside of the function even in the same file
+modules in nodejs also works in the same way
+all the code we write in a module is wrapped into a unseen function and executed
+the only way to access those from the module is via module.exports
+so lets say whenever we export a module in nodejs, we use require to import, so nodejs takes the code from the file in the require and wraps it into a function and then execute it.
+this function where require file code is wrapped is known as IIFE function
+immediately invoked function expression
+then that code will not interfer with the imported file
+in js
+the below is a valid anonymous function
+function (){
+
+}
+and we can call this in fly like below
+(function (){
+
+})() this is immediately invoked function expression
+so when we use require, then nodejs will wrap all the require file code into the anonymous function or IIFE and then it will give it to v8
+use of IIFE
+immediately invokes the code because whenever i use require, i want to immediately invoke the code
+keeps variables and functions private related to the IIFE
+the varaibles and functions present in the require method file path or file given in require are private because of the IIFE
+the IIFE function will have module, require as the arguments given by the node and also there are some more parameters
+ so when you have xyz.js, nodejs takes the code and wraps it inside the IIFE and module, require will be passed as arguments in IIFE and then the code is passed to v8 engine
+ and v8 engine executes the code
+
+ 5 step mechanism of require or when we require a file
+ 1. resolving the module
+ checking what type of data that is getting, if the module is a local path, json path, or node: module internal module
+2. loading the module
+loading the file content
+3. when the module code is loaded, the code is wrapped in IIFE
+4. code evaluation
+in this step, module.exports happens, module.exports is returned means needed variables and functions are returned on to the file we are using require
+5. caching
+the module is cached
+if xyz.js  is required by multiple files, then node caches the require means the code of the require runs only once
+next time or in any other file if we need xyz.js in require, then this code is directly returned from the cache 
+
+
+lets go through the require function code
+
+
+
