@@ -1,0 +1,21 @@
+require works in synchronous mode
+ fs.readFile is asyncrhonous and does not block the main thread
+ but if we use fs.readFileSync this is synchronous and it blocks the main thread
+ lets say we are using crypto module we can do 
+ const crypto = require("crypto") 
+ const crypto = require("node:crypto")
+ crypto used to generate a key for a password using function pbkdf2
+ crypto.pbkdf2("password", "salt", 500000, 50, "sha512", (err, key)=>{
+    console.log("key is generated")
+ })
+ 500000 is iterations like how much complex the key should be
+ 50 is the keylength
+ sha512 is the algorithm
+ crypto is also async and managed by libuv
+sync functions will have a callback as the main thread will be blocked
+ dont use sync functions like fs.readFileSync until needed as this will block the main thread
+ settimeoutzero
+what if settimeout funmction has 0 seconds, will it execute syncrhonous, no why becuase it will still go the the libuv and after 0 seconds it will wait for the call stack to be empty and then sends the callback to the callstack and then executes
+ 0 seconds is after the callstack is empty
+ thats why we have trust issues with settimeout
+
