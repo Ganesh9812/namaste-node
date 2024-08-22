@@ -1,0 +1,41 @@
+v8 js engine
+
+what happens when we give our code to v8
+first step is parsing stage
+in parsing stage, 
+step1 lexical analysis, here the code is broken into tokens or tokenisation
+var a = 10; 
+one token can be var and another token can be a 
+code is read in token by token
+next step, syntax analysis happens where ast is generated
+here ast is developed... tokens are converted into abstract syntax tree, also called as syntax parsing...
+so if give var x = , here we get syntax error because v8 not able to generate the abstract syntax tree..
+next ast is given to  interpretter
+
+js a interpretter language or comiled language?
+2 types of languages
+interpretted language - 
+code is read and executed line by line
+fast initial execution
+interpretter
+
+compliled language- 
+first compiled to machine code and then machine code is executed
+initially heavy but executed fast
+compiler
+
+js is a both interpretter and complied language
+js is JIT just in time compilation
+
+ast is given to an interpretter 
+in v8 engine interpretter is known as ignition interpretter
+interpretter converts ast to byte code
+and execution happens
+the code which is present repeatidly, then interpretter gives the repeated code to compiler, which is hot code...this compiler converts this to optimised machine code and executed
+in js v8 engine the compiler is known as turbofan compiler
+
+in parallel in v8 engine, garbage collection is also happening
+orinoco
+oil pan
+scavenger
+mcompact
