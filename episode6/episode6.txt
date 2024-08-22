@@ -1,0 +1,56 @@
+nodejs has a event driven architecture capable of asynchronous I/O
+js is syncrhonous single thread language
+piece of js code executes line by line in single thread using v8 engine
+js codes line by line
+usually in multi thread few lines of code executes in one thread and few lines of code executes in another thread
+but js is single thread language
+difference between synchronous and asynchronous 
+js is synchronous but with nodejs super powers, js can perform asynchronous tasks
+usually async in js takes some time
+so we will see how we can execute async code fast in js using nodejs
+nodejs gives the super powers to the js to perform async in a better way
+so if js engine or js needs to read a file, js engine need to talk to OS becuase OS at the eod knows the location of the file right
+same js does not have capability to connect DB directly.. js needs some super powers to connect to DB
+same js does not have concept of time, it needs to connect to time function in OS 
+OS manages time 
+OS only can make network call
+the above things are not happening in node or anywhere, these are managed by OS at eod using the kernel, processors, ports etc....
+js engine needs some super powers to get access to all the above...
+the super powers are given to js engine by nodejs and nodejs is doing that by a library called libuv
+libuv is a super hero
+for eg: js engine need to do a file access, it cannot do it directly, it tells libuv and libuv gives that..
+js engine off loads async tasks to libuv
+async operations with js is little complex but with libuv it is simple
+libuv is written in c and low level languag and low level language interacts with OS easily
+js is high level language
+libuv acts a middleware between js engine and OS
+libuv has a thread pool and event pool
+lets see now how syncrhonous and asynchronous nodejs program is executed
+whatever the code in nodejs or js it will run in call stack
+GEC is created in call stack
+in GEC code is executed synchronous like line by line
+memory heap
+garbage collector
+whenever some api call code executes in GEC, v8 calls libuv and ask libuv to do the api call this might take 100ms
+and js does not wait for 100ms and proceed furthur
+and libuv registers the api call and do the api call and libuv stores the callback function that needs to be executed after the api call
+this callback function is part of api call code
+now meanwhile js codes to next line
+now again if the js code moves to settimeout, then v8 calls libuv and ask libuv to handle the settimeout
+now the timer is handled by the libuv
+now again js codes to file read and again v8 calls libuv to handle this file read 
+nwo again multiply function, this quickly executes this function
+whenever a function call, js engine in callstack will be create a new function execution context and executes the function code and fec moves out of the callstack and also the final result in the function which is returned is cleared by the garbage collector, anyhow the result is assinged to the function call variable and then again the global execution call is resumes
+then once done gec moves out of the call stack
+now libuv is making the api calls 
+so for now if file read is completed, as soon as the file data is returned, libuv gives the callback function to the callstack and the gec is created and the callback function code is executed 
+and the gec moves out of the callstack
+now again if the network api call is done...then libuv gives the respective callback function to the v8 and gec is formed in callstack and executes the callback in gec and gec will be moved out of the callstack
+same again with settimeout
+nodejs is asynchronous but v8 is synchronous
+due to the above all, we call that nodejs do asynchronous I/O also called non blocking I/O, I/O means like network calls, reading files etc.. like asynchronous operations
+called non blocking I/O because does not block the main thread
+due to the above all nodejs is powerful
+nodejs has a concept of non blocking I/O using v8 engine
+
+
