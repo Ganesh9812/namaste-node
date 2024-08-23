@@ -1,0 +1,77 @@
+libuv and event loop
+nodejs has v8 , libuv and others
+now more about libuv
+inside libuv we have 3 major components
+event looop
+callback queue
+thread pool
+
+whatever code in nodejs we write goes to v8 first and some of the async task offloaded to libuv
+async I/O non blocking I/O can be done only using libuv
+libuv is important library for nodejs
+so when an async like api call(which includes callback function) to network offloaded to libuv and if libuv is ready with callback means api call done, then this callback from libuv, this callback needs to wait in callback queue until v8 callstack is empty
+when we do multiple async calls, all the callbacks need to wait in callback queue until v8 callstack is empty
+event loop job is keep checking the callstack if it is empty and if it sees callstack is empty then event loop takes the callback and pushes to callstack to execute
+if multiple callback or async calls done on same time and waiting in callback queue
+then what does event loop do, which one first it sends the callback to callstack in v8
+even loop phases
+timer phase
+poll phase
+check phase
+close phase
+
+timer phase
+checks the callbacks related to timer like settimeout, settimeinterval
+
+poll phase
+all the callback related to I/O operation like reading a file, api network call
+most of the callback executed in the poll phase
+very important phase
+
+check phase
+setimmediate callbacks are executed
+
+close phase
+here closing the socket and handling the socket will be handled
+
+all these 4 phases run in cycle
+
+before every phase, event loop also follow an inside cycle
+process.nextTice() callbacks----> promises callbacks..this is like a priority cycle before every phase 
+before every phase the above cycle happens where process.nextick callback or promise.callbacks will be executed 
+and event loop check if there is any callback waiting for next tick or there is any callback waiting for promise.callback
+all process.nexttick callbacks in separate queue
+all promises.callbacks in separate queue
+timer phase callbacks will be in separate queue
+poll phase callbacks will be in separate queue
+consider each phase or next ticket or promise callback as one strip of respective callbacks
+once as per the callbacks are executed in their respective queue, then those callback will be removed from the strip
+
+event loop waits at the poll phase
+if the event loop is ideal or nothing is there in the callback queues and v8 is also empty then the event loop waits at the poll phase 
+
+output
+last line of the file
+next tick
+promise
+timer expired
+setimmediate
+
+file reading cb
+2nd next tick
+2nd setimmediate 
+2nd timerend 
+
+last line of the file
+next tick
+inner next ticket 
+promise
+timer expired
+setimmediate
+file reading cb
+
+
+
+
+
+

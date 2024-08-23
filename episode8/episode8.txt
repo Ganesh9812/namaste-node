@@ -33,9 +33,11 @@ interpretter converts ast to byte code
 and execution happens
 the code which is present repeatidly, then interpretter gives the repeated code to compiler, which is hot code...this compiler converts this to optimised machine code and executed
 in js v8 engine the compiler is known as turbofan compiler
+in compiler optimization and deoptimization also happens
 
 in parallel in v8 engine, garbage collection is also happening
 orinoco
 oil pan
 scavenger
 mcompact
+
