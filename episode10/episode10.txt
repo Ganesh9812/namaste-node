@@ -1,0 +1,64 @@
+thread pool
+
+now continuation to last episode
+
+in addition to event loop phases we discussed in the last episode, we have few more phases like pending callbacks phase and idle, prepare phases in between timer and poll phase
+one full cycle is known as tick of event loop
+poll phase handles most of the events like I/O events
+thats why some many preparations in the cycle before the poll phase
+
+where in the code we can see that event loop waits
+
+thread pool
+
+whenever we want to read a file, the v8 engikne offloads task to libuv, so libuv uses the one of the thread of the thread pool to request the file
+then the thread makes the request to the OS and then thread returns the data, once the task is done thread is available for some other operation
+in parallel for another api call or somethikng, this will happen in another thread of the thread pool
+
+in nodejs the size of the thread pool is 4 by default which means 4 threads by default
+so if we need 5 file reading at the same time, 5th one needs to wait for one of the thread to empty
+dns lookup also heavy operation and happens in thread of the thread pool
+crypto also thread in the thread pool
+ nodejs is synchronous code, then it is single threaded, if we need to something which uses libuv, then it can be multiple thread
+
+ nodejs is v8 + event loop to store the callbacks in callback queue so that these callbacks will be send to v8 for excecution related to event loop to which callback need to send first + thread pool
+ thread pool gives the callback to callback queues and event loop decides which callback needs to be sent to callstack for execution using the event loop phases
+ we can also change the size of the thread pool
+ process.env.UV_THREADPOOL_SIZE = 2
+ we can increase the thread pool size as well
+ network api calls does not uses thread pool
+making one thread per request is not a good ideal
+ all the network connection happens in server in sockets
+ we need to have a socket for incoming request in the server
+ each socket has a socket descriptor also called as file descriptor
+ epoll and kqueue
+ epoll algorithm is used in linux
+ kqueue in macos
+ the above to handle the incoming request of the network calls
+ scalable I/O event notification mechanism
+ when ever we have a incoming connection requests coming from users, each request needs to handled by socket and the socket file descriptor 
+ we can create an epoll descriptor
+ this epoll descriptor is the collection of the socket descriptors
+ one epoll descriptor can handle multiple connections/requests
+ inside OS ---> hardware
+ on top of hardware we have kernel
+ on top of kernel we have processors
+ all the nodejs and all runs in processors
+ now we need to talk to kernel and at the epoll and kqueue are at kernel level
+ if there is any activity in one of the connections once the request is made, epoll notify libuv, and libuv sends the callback and callback will be managed by event loop when to send to v8 call stack for execution
+
+in nodejs we have event loop callback queue and thread pool
+ whenever we want to read a file, the v8 engikne offloads task to libuv, so libuv uses the one of the thread of the thread pool to request the file
+then the thread makes the request to the OS and then thread returns the data, once the task is done thread is available for some other operation
+ event loop job is keep checking the callstack if it is empty and if it sees callstack is empty then event loop takes the callback from the callback queue and pushes to callstack to execute
+
+
+v8--> offloades tasks to libuv --> thread pool(only few not all async calls) ---> callback queue ----> event loop decides what to push to v8 engine
+
+event emitters
+streams and buffers
+pipes
+
+
+epoll uses red black tree data structure
+epoll manages socket descriptors
