@@ -1,0 +1,100 @@
+creating a server
+how web works
+how user makes a request to our server and response is sent
+server
+client
+
+server 
+sometimes server word is used for hardware, software...
+deploy your app to server: we are deploying an application on the server, 
+like deploying an application on the server or running the application on the operation system, and application serves to the clients who wants to connect to our server
+server will have lot of files/data/memory etc...
+to access those files and other things from out side world, we need a way to connect right
+so we need an application running in the OS so that we can handle requests coming from the users and send back the data accordingly
+server is like sytem or machine or hardware --->contain files/images/data ---> need an application running/deployed to the hardware in the OS to handle request and to send data back to the user
+sometimes we refer the app deployed to the hardware as the server
+sometimes we refer the hardware machine as the server
+servers on aws: means aws managing the hardwares, aws is giving the hardware resource to deploy our application on that server(in this context, server is hardware)
+when we have a server in aws, ec2 instance-> a cpu or computer managed by aws to deploy our application
+so here aws is managing the hardware and software
+we can computer as server as well,,.. but my limited has limited ram and storage, so many efforts, but in aws servers we can scale and they are up and running with huge power backups..
+so server is like computer or hardware where our app is hosted...and through the app we can handle the incoming requests
+when we take a server or machine in aws, we have an dedicted IP
+
+
+software part 
+using node to create a web server
+what does this mean
+we are creating an http server using node
+what does this mean
+means im creating an application server to handle the user requests
+
+
+client server architecture
+client is one accessing the server
+ever client has an IP address
+and ever server has an IP address
+server has files/photos/docs
+if user from the browser wants to access the file on the server,,, this client has to open socket connection  or send an requests..
+somebody should listen to the incoming requests right, 
+that application is listening to the request and giving the data, here this application is also known as server 
+once the client makes an request, a socket connection is opened and here our application/server fetches the data and gives back and the socket connection will be closed
+when the socket connection is made, when the data is sent back, TCP/IP protocal is used to sent the data
+
+what is protocol
+set of rules defined between two computers to talk
+
+on the server, we might heard http server or FTP server, smtp server...
+when client makes an request, socket connection opens and there are different rules/protocols which the server will send the response back 
+these rules are know as http, ftp, smtp
+like the data can be sent back in http, ftp or smtp rules
+if we have a server just serves only files, then we use FTP rule to send those files
+SMTP: simple mail transfer protocal
+
+when we create a server using node, here server is web server(here server is an application kind to receive and send back the data), means we are creating the http server 
+
+when we send a request from teh client, data will come in small packets/streams/buffers...this is data controlled by TCP/IP protocol
+
+every domain name is mapped to an IP
+
+DNS server manages the mapping for IP address and domain name
+can i create multiple http servers --yes  which means 2 different node applications to seve the incoming request
+how do we know we have to go which http server, decides by port
+one http server uses the port 1010 and another might use port 3000
+IP + port tells which http server we are referring
+http server you can assume as one node application to handle the incoming requests and for giving the data back
+
+IP + PORT ---tells which application to go --
+if we give path as well, --- it tells which application to go to and it is associate to an api
+
+namastedev.com is domain name maps to an IP 
+http server can be created in multiple langues, here are we are using nodejs
+
+lets say namastedev.com/ -> maps to react application in same server which gives the html 
+namastedev.com/api/getusers --> maps to nodejs application in the same server where we can map namastedev.com/api maps to different port where nodejs application presents
+
+in the same server, we can do our front end application, back end , db , file managin we can do that
+but in lot of cases, in big cases or big companies, they keep DB into one server , different sever for file, different server for images, 
+so a server can interact with other server like front end application kept in one server and if we need some files or somethign, this server interacts with another server and gets the data back,
+this is also possible
+all applications like front end and back end can be maintained in teh same server or for big companies they can maintain in different servers
+
+eg: namastedev is serveed by aws server for fornt end and back end but db is on another server
+
+socket vs websocket
+socket is like when client request somethign the socket connection is opened and closed and if again , again the socket is opened and closed,
+but with websocket, this connection is not closed and holds for a long time
+for a server, there is a limit of sockets
+so web socket has some limits
+
+nodejs has http module to create a server to listen to incoming requests
+
+http is not that feasible, so we use express
+
+express.js is nodejs is application framework
+express is built on nodejs
+
+
+
+
+
