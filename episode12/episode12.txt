@@ -1,0 +1,39 @@
+database
+orginized collection of data
+DBMS - way to interact with data like adding, getting
+nodejs application ---> BDMS ---> DB
+
+databases
+relational db - mysql, postgress QL
+nosql db - mongodb
+
+RDBMS - mysql and postgress QL comes under RDMS
+mysql , postgress QL
+sql - structured query lanuage used to interact with DB using some stucture query language
+so mysql is DB
+sql is stucutured query language
+
+ nosql db
+ 4 types of nosql db
+ document type
+ key value
+ graph 
+ wide column db
+ multi model
+
+ mongo db is nosql db and uses document type
+mongo db is compatible with js and nodejs
+increases dev productivity
+easy to manage
+
+difference between RDMS and nosql
+in RDBMS data is store in tables
+in nosql database the data is store in document
+we dont have table in mongodb and we call it as collection 
+in tables we have rows, here we have document in mongodb
+document will have fields
+no need of joins or no need for data normalization in mongodb
+collection --> documnets ---> each document --> fields
+RDMS uses stuctured Query language
+in No sql mongodb we have MQL query language
+
