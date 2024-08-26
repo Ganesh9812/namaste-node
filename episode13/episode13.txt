@@ -1,0 +1,62 @@
+mongodb
+how to create mongodb
+how to write code to connect to db
+how to connect mongodb with nodejs
+community version is free version for the devs to use
+enterprise version is for companies....
+
+both can be self managed- 
+both can be managed by mongodb
+
+for this course we use the mongodb free version where managed by the mongodb for free
+after downloading and installing it and since we are asking mongodb team to manage it, mongodb will take the db and deploy the cluster in some machine or server
+
+ganeshpavankumars
+cOeeng04sYTtEKA9
+
+after settings done, we need to get the connection string to use the mongodb now
+
+select compass 
+copy the connection string
+
+mongodb+srv://ganeshpavankumars:<db_password>@namastenode.yqrkb.mongodb.net/
+
+mongodb compass is the UI to see the database we opted and asked mongodb team to put in aws
+
+install mongodb compass
+connect database to compass
+
+put this "mongodb+srv://ganeshpavankumars:cOeeng04sYTtEKA9@namastenode.yqrkb.mongodb.net/cOeeng04sYTtEKA" in the compass when creating a new connection
+
+now we can access the cluster using compass and we can create multiple separate databases
+
+cluster link
+https://cloud.mongodb.com/v2/66cb069d2e518d2b1a746bec#/clusters
+
+once we link mongodb cluster to the mongodb compass, then you can create the db using compass
+db name
+collection name is table name 
+now we can add data means you can add documents into it
+document is nothing but json object
+when we dont give id, document will give id after adding the data
+
+now using the nodejs code we can push the data to the existing document
+first lets connect nodejs to mongodb
+database is in cloud server managed by aws and compass is just GUI
+we will connect through the below url
+ "mongodb+srv://ganeshpavankumars:cOeeng04sYTtEKA9@namastenode.yqrkb.mongodb.net/";
+ for this we need npm package known as mongodb
+ npm is a repository where it contain lot of node modules
+ fs is managed by node thats why we didnt install it explicity
+ but mongodb is managed by mongodb we need to install that package
+ npm install mongodb
+
+
+assume one row in sql as one document in mongodb
+
+in prod we wont use mongodb library package for getting or updating the database..
+we use mongoose library 
+
+in our project we use express js and mongoose to connect to database
+like how to create a server using express.js like how we created using http in the server.js file
+and how we can use moongoose to create the db connection and also inserting doc and reading the data using mongoose
