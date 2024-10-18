@@ -1,0 +1,9 @@
+microservices vs monolith
+
+monolith
+one single project
+all code in single repo
+front end backend etc in one project
+
+microservices
+multiple repo
